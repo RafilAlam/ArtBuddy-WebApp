@@ -69,4 +69,4 @@ def artscan():
     return render_template('wip.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
