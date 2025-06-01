@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify, render_template, Response
 import requests
 
-RIJKSMUSEUM_API_BASE = 'https://www.rijksmuseum.nl/api/en/collection'
-
 app = Flask(__name__)
 
 @app.route('/')
