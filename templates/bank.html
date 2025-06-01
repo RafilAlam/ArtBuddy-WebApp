@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Art Buddy</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Hanken Grotesk' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    </head>
+    <body>
+        <nav id="navbar">
+            <div class="island">
+                <a class="navbtn bold specialtxt" href="/"><i class="bi bi-brush-fill"></i> ArtBuddy</a>
+            </div>
+            <div id="navisland" class="island">
+                <a id="explore" class="navbtn" href="/explore"><i class="bi bi-search"></i> Explore</a>
+                <a id="artbank" class="navbtn navselected" href="/artbank"><i class="bi bi-archive"></i> Art Bank</a>
+                <a id="artscan" class="navbtn" href="/artscan"><i class="bi bi-upc-scan"></i> Art Scan</a>
+            </div>
+        </nav>
+        <main>
+            <div id="grid" class="gallery"></div>
+            <script>
+                let msnry = null;
+                window.onload = function() {
+                    const gallery = document.getElementById('grid');
+                    msnry = new Masonry(gallery, {
+                        itemSelector: '.masonry-item',
+                        columnWidth: 200,
+                        gutter: 16,
+                        fitWidth: true
+                    });
+                    loadSavedArtworks();
+                };
+
+                async function loadSavedArtworks() {
+                    const gallery = document.getElementById('grid');
+                    const saved = JSON.parse(localStorage.getItem('saved_artworks') || '[]');
+                    for (const art of saved) {
+                        const item = document.createElement('div');
+                        item.className = 'masonry-item';
+                        const img = document.createElement('img');
+                        img.src = `/image_proxy/${art.image_id}`;
+                        img.onclick = function() {
+                            window.open(img.src, '_blank');
+                        }
+                        img.alt = art.title;
+                        img.title = `${art.title} — ${art.artist}`;
+                        img.style.width = '100%';
+                        img.style.display = 'block';
+                        img.onerror = function() {
+                            this.onerror = null;
+                            this.src = '/static/placeholder.png';
+                        };
+                        img.onload = function() {
+                            gallery.appendChild(item);
+                            msnry.appended(item);
+                            msnry.layout();
+                        };
+                        item.appendChild(img);
+                    }
+                }
+
+            </script>
+        </main>
+    </body>
+</html>

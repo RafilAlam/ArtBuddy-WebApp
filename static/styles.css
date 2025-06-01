@@ -1,10 +1,10 @@
 :root {
-    --main-color1: #0d0c14;
-    --main-color2: #201d31;
-    --main-color3: #322e4d;
-    --main-color4: #45406a;
-    --main-color5: #585187;
-    --main-color6: #726ba6;
+    --main-color1: #090316;
+    --main-color2: #260d5d;
+    --main-color3: #41169f;
+    --main-color4: #6328e2;
+    --main-color5: #926aeb;
+    --main-color6: #bdb0da;
 }
 
 * {
@@ -18,6 +18,22 @@ body {
     font-family: 'Hanken Grotesk', sans-serif;
 }
 
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
 #navbar {
     display: flex;
     align-items: center;
@@ -27,8 +43,151 @@ body {
 
 #navisland {
     position: absolute;
-    left: 50%;
+    left: 40%;
+}
 
+#hometitle {
+    font-size: 5rem;
+    color: var(--main-color5);
+}
+
+#homesubtitle {
+    font-size: 2rem;
+    color: var(--main-color6);
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--main-color1);
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.gallery {
+    top: 30px;
+    width: 80vw;
+    max-width: 98vw;
+    margin: 0px auto;
+    padding: 10px;
+    border-radius: 25px;
+    border: 5px solid var(--main-color3);
+    background-color: var(--main-color2);
+    box-sizing: border-box;
+    
+    position: relative;
+}
+
+.masonry-item {
+    width: 180px;
+    margin-bottom: 5px;
+    border: 5px solid var(--main-color3);
+    border-radius: 10px;
+    display: block;
+    float: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masonry-item:hover {
+    transform: scale(1.05);
+    margin-right: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: block;
+}
+
+.galleryfooter {
+    width: 100%;
+    padding: 50px;
+    background-color: var(--main-color2);
+    text-align: center;
+    color: var(--main-color5);
+}
+
+#querybox {
+    position: sticky;
+    top: 100px;
+    z-index: 100;
+    width: 860px;
+    max-width: 98vw;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid var(--main-color3);
+    background-color: var(--main-color2);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    box-sizing: border-box;
+}
+
+#search {
+    padding: 10px;
+    font-size: 1.2rem;
+    margin: 0px auto;
+    border-radius: 20px;
+    border: 3px solid var(--main-color3);
+    color: var(--main-color6);
+    background-color: var(--main-color1);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+#search:hover {
+    border-color: var(--main-color4);
+    transform: scale(1.05);
+}
+
+#search:focus {
+    outline: none;
+    transform: scale(1.05);
+    border-color: var(--main-color4);
+}
+
+#searchbtn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: 3px solid var(--main-color3);
+    color: var(--main-color5);
+    background-color: var(--main-color2);
+    padding: 7px 7px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease, transform 0.3s ease;
+}
+
+#searchbtn:hover {
+    border: 3px solid var(--main-color4);
+    transform: scale(1.05);
+    color: var(--main-color5);
+}
+
+#searchbtn:active {
+    transform: scale(0.95);
+    background-color: var(--main-color2);
+    border: 3px solid var(--main-color2);
+}
+
+#loading {
+    position: relative;
+    top: 20px;
+    bottom: auto;
+    z-index: 101;
 }
 
 .island {
@@ -40,11 +199,83 @@ body {
 
 .navbtn {
     text-decoration: none;
+    position: relative;
+    display: inline-block;
 
     color: var(--main-color5);
-    padding: 10px 10px;
+    background-color: var(--main-color1);
+    padding: 3px 4px;
     font-size: 18px;
     cursor: pointer;
+    border-radius: 10px;
+    transition: color 0.3s cubic-bezier(.4,2,.6,1), background-color 0.3s, transform 0.5s cubic-bezier(.4,2,.6,1), margin 0.2s;
+}
+
+.navbtn:hover {
+    color: var(--main-color4);
+    background-color: var(--main-color2);
+    transform: scale(1.3);
+    margin: 0px 20px;
+    font-weight: bold;
+    z-index: 10;
+    filter: drop-shadow(0 6px 16px rgba(98,40,226,0.18));
+}
+
+/* MacOS dock effect: scale neighbors on hover */
+.navbtn:hover ~ .navbtn {
+    transform: scale(1.15);
+    background-color: var(--main-color1);
+    z-index: 5;
+}
+
+.navbtn:has(+ .navbtn:hover),
+.navbtn:hover + .navbtn {
+    transform: scale(1.15);
+    background-color: var(--main-color1);
+    margin: 0px 0px;
+    z-index: 5;
+}
+
+.navselected {
+    color: var(--main-color4);
+    transform: scale(1.3);
+    margin: 0px 20px;
+    font-weight: bold;
+    z-index: 10;
+    filter: drop-shadow(0 6px 16px rgba(98,40,226,0.18));
+}
+
+.roundbtn {
+    background-color: var(--main-color2);
+    border: 3px solid var(--main-color3);
+    color: var(--main-color4);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    height: 20px;
+    width: 20px;
+    z-index: 10;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: color 0.3s ease, transform 0.1s ease, opacity 0.3s ease;
+}
+
+.roundbtn:hover {
+    line-height: 1.5;
+    color: var(--main-color5);
+}
+
+.roundbtn:active {
+    transform: scale(0.95);
+    background-color: var(--main-color3);
+}
+
+.masonry-item:hover .roundbtn {
+    opacity: 1;
 }
 
 .specialtxt {
@@ -54,3 +285,35 @@ body {
 .bold {
     font-weight: bold;
 }
+
+/* Breathe wiggle animation for each letter */
+@keyframes breathe-wiggle {
+    0% { transform: translateY(0) scale(1) rotate(-2deg); }
+    20% { transform: translateY(-2px) scale(1.05) rotate(2deg); }
+    40% { transform: translateY(2px) scale(0.98) rotate(-2deg); }
+    60% { transform: translateY(-1px) scale(1.03) rotate(2deg); }
+    80% { transform: translateY(1px) scale(1) rotate(-2deg); }
+    100% { transform: translateY(0) scale(1) rotate(-2deg); }
+}
+
+.breathe-letters span {
+    display: inline-block;
+    animation: breathe-wiggle 3.2s ease-in-out infinite;
+}
+
+/* Add a slight animation delay for each letter for a wave effect */
+.breathe-letters span:nth-child(1) { animation-delay: 0s; }
+.breathe-letters span:nth-child(2) { animation-delay: 0.1s; }
+.breathe-letters span:nth-child(3) { animation-delay: 0.2s; }
+.breathe-letters span:nth-child(4) { animation-delay: 0.3s; }
+.breathe-letters span:nth-child(5) { animation-delay: 0.4s; }
+.breathe-letters span:nth-child(6) { animation-delay: 0.5s; }
+.breathe-letters span:nth-child(7) { animation-delay: 0.6s; }
+.breathe-letters span:nth-child(8) { animation-delay: 0.7s; }
+.breathe-letters span:nth-child(9) { animation-delay: 0.8s; }
+.breathe-letters span:nth-child(10) { animation-delay: 0.9s; }
+.breathe-letters span:nth-child(11) { animation-delay: 1.0s; }
+.breathe-letters span:nth-child(12) { animation-delay: 1.1s; }
+.breathe-letters span:nth-child(13) { animation-delay: 1.2s; }
+.breathe-letters span:nth-child(14) { animation-delay: 1.3s; }
+.breathe-letters span:nth-child(15) { animation-delay: 1.4s; }

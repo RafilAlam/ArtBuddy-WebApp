@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
         <link href='https://fonts.googleapis.com/css?family=Hanken Grotesk' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Icon.ico') }}">
     </head>
     <body>
         <nav id="navbar">
@@ -14,13 +15,23 @@
                 <a class="navbtn bold specialtxt" href="/"><i class="bi bi-brush-fill"></i> ArtBuddy</a>
             </div>
             <div id="navisland" class="island">
-                <a class="navbtn"><i class="bi bi-search"></i> Explore</a>
-                <a class="navbtn"><i class="bi bi-archive"></i> Art Bank</a>
-                <a class="navbtn"><i class="bi bi-upc-scan"></i> Art Scan</a>
+                <a id="explore" class="navbtn" href="/explore"><i class="bi bi-search"></i> Explore</a>
+                <a id="artbank" class="navbtn" href="/artbank"><i class="bi bi-archive"></i> Art Bank</a>
+                <a id="artscan" class="navbtn" href="/artscan"><i class="bi bi-upc-scan"></i> Art Scan</a>
             </div>
         </nav>
         <main>
-            
+            <div class="flex">
+                <div>
+                    <h1 id="hometitle" class="breathe-letters">
+                      <span>A</span><span>r</span><span>t</span> <span>B</span><span>u</span><span>d</span><span>d</span><span>y</span>
+                    </h1>
+                    <h2 id="homesubtitle">your one-stop artist pal</h4>
+                </div>
+            </div>
+            <footer id="footer">
+                made with 💖 by Rafil
+            </footer>
         </main>
     </body>
 </html>
