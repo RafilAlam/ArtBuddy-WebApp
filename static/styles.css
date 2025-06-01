@@ -260,7 +260,6 @@ h4 {
     position: absolute;
     top: 10px;
     right: 10px;
-    opacity: 0;
     transition: color 0.3s ease, transform 0.1s ease, opacity 0.3s ease;
 }
 
@@ -272,10 +271,6 @@ h4 {
 .roundbtn:active {
     transform: scale(0.95);
     background-color: var(--main-color3);
-}
-
-.masonry-item:hover .roundbtn {
-    opacity: 1;
 }
 
 .specialtxt {
