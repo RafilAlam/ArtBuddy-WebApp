@@ -4,7 +4,7 @@ A WebApp built to support artists by providing tools to make their lives easier.
 [🌐 View Live Website](https://your-render-url.onrender.com)
 
 ## Purpose
-Help artists find related reference artworks FAST and save artworks to view for later.
+Save artists the hassle of finding and saving artworks for referencing
 
 ## Tech Stack
 - HTML & CSS
