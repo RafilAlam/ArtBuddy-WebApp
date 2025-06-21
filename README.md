@@ -1,7 +1,7 @@
 # Art Buddy, Made for the community
 A WebApp built to support artists by providing tools to make their lives easier.
 
-[🌐 View Live Website](https://your-render-url.onrender.com)
+[🌐 View Live Website](https://art-buddy.onrender.com/)
 
 ## Purpose
 Save artists the hassle of finding and saving artworks for referencing
